@@ -1,6 +1,5 @@
 package main
 
-
 import (
 	"database/sql"
 	"embed"
@@ -91,9 +90,9 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
-		ReadHeaderTimeout: 5 * time.Second, // to prevent Slowloris 
+		Addr:              ":" + port,
+		Handler:           router,
+		ReadHeaderTimeout: 5 * time.Second, // to prevent Slowloris
 	}
 
 	log.Printf("Serving on port: %s\n", port)
