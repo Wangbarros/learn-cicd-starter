@@ -33,8 +33,10 @@ jobs:
         run: 'gcloud info'
       
       - name: 'Build Docker Image on gloud'
-        run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/learn-cicd-468710/notely-ar-repo/notely:latest 
-'
+        run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/learn-cicd-468710/notely-ar-repo/notely:latest'
+        
+      - name: Deploy to Cloud Run
+        run: 'gcloud run deploy notely --image us-central1-docker.pkg.dev/learn-cicd-468710/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project learn-cicd-468710 --max-instances=4'
   
         
 
